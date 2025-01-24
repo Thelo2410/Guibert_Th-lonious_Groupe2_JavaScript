@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte Nas Benas</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(20, 20, 20);
+            color: rgb(255, 255, 255);
+            margin: 0rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.795);
+            margin-right: 10rem;
+        }        
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            justify-content: space-between;
+            background-color: rgb(14, 13, 13);
+            height: 10vh;
+            list-style: none;
+        }
+
+        .logos {
+            margin-left: 1%;
+            margin-right: 20px;
+        }
+
+        .logo-site {
+            margin: 10%;
+        }
+
+        .nav {
+            display: flex;
+            margin-right: 25%;
+            gap: 0.938rem;
+        }
+
+        .nav-link {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        .account-page {
+            max-width: 50rem;
+            margin: 3.125rem auto;
+            padding: 1.25rem;
+        }
+
+        .account-info {
+            margin-bottom: 1.875rem;
+        }
+
+        .account-info h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.625rem;
+        }
+
+        .account-info p {
+            font-size: 1rem;
+            margin: 0.313rem 0rem;
+        }
+
+        .btn {
+            padding: 0.625rem 1.25rem;
+            background-color: rgb(229, 9, 20);
+            color: rgb(255, 255, 255);
+            border: none;
+            font-size: 0.875rem;
+            cursor: pointer;
+            border-radius: 0.313rem;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+    /* Styles de base pour le popup */
+        .popup {
+            display: none; /* Caché par défaut */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            background: rgb(125, 114, 114);
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+    /* Overlay pour désactiver l'arrière-plan */
+        .overlay {
+            display: none; /* Caché par défaut */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+    /* Bouton pour fermer le popup */
+        .close-btn {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #FF3B3B;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: rgb(246, 18, 29);
+        }
+
+        .profile-section h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.625rem;
+        }
+
+        .profiles {
+            display: flex;
+            gap: 0.938rem;
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .profile img {
+            width: 9.375rem;
+            height: 9.375rem;
+            border-radius: 0.313rem;
+            margin-bottom: 0.625rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1.25rem;
+            font-size: 1.563rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+
+        <a href="index.html"><img class="logo-site" src="Image/Icones/Logo du site.png" width="77.5" alt="Logo du site"></a>
+        
+        <nav class="nav">
+                <li><a href="index.html">Acceuil </a></li>
+                <li><a href="page-films.html">Films </a></li>
+                <li><a href="page-series.html">Séries </a></li>
+        </nav>
+        
+        <nav class="logos">
+            <a href="page-compte.html"><img src="Image/Icones/horreur.png" alt="Logo Espace Abonné" width="50"></a>
+        </nav>
+
+        <nav>
+            <!-- Bouton pour basculer entre les modes -->
+            <button class="toggle-btn" id="toggleMode">Activer le mode sombre</button>
+        </nav>
+
+    </header>
+
+    <!-- <button>Afficher le popup</button> -->
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Popup -->
+    <div class="popup" id="popup"> 
+
+        <ul id="errorList">
+
+        </ul>
+
+        <form id="myForm" action="">
+            
+            <br>
+
+            <label for="firstName">Prénom</label>
+            <input type="text" name="firstName" id="firstName"><br>
+    
+            <label for="lastName">Nom</label>
+            <input type="text" name="lastName" id="lastName"><br>
+    
+            <label for="pseudo">Pseudo</label>
+            <input type="text" name="pseudo" id="pseudo"><br>
+    
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email"><br>
+    
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="password"><br>
+            
+            <br><br>
+
+            <div id ="menu">
+                <div class = "tab content1 active">Abonnement 1</div>
+                <div class = "tab content2">Abonnement 2</div>
+                <div class = "tab content3">Abonnement 3</div>
+            </div>
+            
+
+            <div id ="content">
+                <div class = "content content1">
+                    <p>
+                        NasBenas Standard avec pub + Bouquet Famille à 5,99 €/mois au lieu de 15,99 €/mois
+                    </p>
+                </div>
+        
+                <div class = "content content2">
+                    <p>
+                        NasBenas Standard sans pub + Bouquet Famille à 13,49 €/mois au lieu de 23,49 €/mois
+                    </p>
+                </div>
+        
+                <div class = "content content3">
+                    <p>
+                        NasBenas Premium + Bouquet Famille à 19,99 €/mois
+                    </p>
+                </div>
+            </div>
+            
+            <input type="submit" value="Modifier">
+
+            
+            <button class="close-btn" id="closePopup">Fermer</button>
+
+        </form>
+    </div>
+
+    <main class="account-page">
+        <section class="account-info">
+            <h1>Compte</h1>
+            <p class="account-email">Adresse e-mail : <strong>LeBoss@gmail.com</strong></p>
+            <p class="account-plan">Abonnement actuel : <strong>Premium Ultra HD</strong></p>
+            <button id="openPopup">Modifier l'abonnement</button>
+        </section>
+        <section class="profile-section">
+            <h2>Profils</h2>
+            <div class="profiles">
+                <div class="profile">
+                    <img src="Image/Icones/stan-lee.png" alt="Profil 1">
+                    <p>Le boss</p>
+                </div>
+                <div class="profile">
+                    <img src="Image/Icones/masque (1).png" alt="Profil 2">
+                    <p>Zac</p>
+                </div>
+                <div class="profile">
+                    <img src="Image/Icones/masque.png" alt="Profil 3">
+                    <p>La plus grande des folles</p>
+                </div>
+                <div class="profile">
+                    <img src="Image/Icones/masque (2).png" alt="Profil 4">
+                    <p>Le Daron</p>
+                </div>
+                <div class="profile">
+                    <img src="Image/Icones/super-heros.png" alt="Profil 5">
+                    <p>Pablo</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+    // Sélection des éléments
+        const openPopupBtn = document.getElementById('openPopup');
+        const closePopupBtn = document.getElementById('closePopup');
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('overlay');
+
+    // Fonction pour afficher le popup
+    openPopupBtn.addEventListener('click', () => {
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+    });
+
+    // Fonction pour fermer le popup
+    closePopupBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    // Fermer le popup en cliquant sur l'overlay
+    overlay.addEventListener('click', () => {
+        popup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    let listTab = document.getElementsByClassName("tab");
+
+    for (let i = 0; i < listTab.length; i++){
+        const tab = listTab[i];
+   
+        tab.addEventListener("click", function(){
+
+            for (let i = 0; i < listTab.length; i++) {
+                const tab = listTab[i];
+                tab.classList.remove("active");
+            }
+
+            this.classList.add("active");
+
+            let classTab = this.classList;
+        
+            let listContent = document.getElementsByClassName("content");
+            for (let i = 0; i < listContent.length; i++) {
+                const content = listContent[i];
+                content.classList.remove("visible");
+            }
+
+            if(classTab.contains("content1")){
+                console.log("content1");
+                document.querySelector("#content .content1").classList.add("visible");
+            } else if(classTab.contains("content2")) {
+                document.querySelector("#content .content2").classList.add("visible");
+            } else {
+                document.querySelector("#content .content3").classList.add("visible");
+            }
+        });
+    }   
+
+    const toggleBtn = document.getElementById('toggleMode');
+
+    // Ajouter un événement au bouton
+    toggleBtn.addEventListener('click', () => {
+      // Basculer la classe "dark-mode" sur le <body>
+      document.body.classList.toggle('dark-mode');
+
+      // Changer le texte du bouton en fonction du mode
+      if (document.body.classList.contains('dark-mode')) {
+        toggleBtn.textContent = 'Activer le mode clair';
+      } else {
+        toggleBtn.textContent = 'Activer le mode sombre';
+      }
+    });
+
+    let form = document.getElementById("myForm");
+console.log(form);
+
+form.addEventListener("submit", function(event){
+    event.preventDefault();
+
+    let password = document.getElementById("password");
+    let errorList = document.getElementById("errorList");
+    errorList.innerHTML = "";
+
+    let check = new RegExp(/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/);
+
+    let email = document.getElementById("email");
+
+    if(pseudo.value == ""){
+        console.log("pseudo invalide");
+        pseudo.classList.add("error");
+        let liError = document.createElement("li");
+        liError.innerText = "Le champ pseudo doit contenir au moins 6 caractères !";
+        errorList.appendChild(liError);
+        pseudo.classList.add("error");
+       
+    } else {
+        pseudo.classList.remove("error");
+        console.log("pseudo valide");
+    }
+
+    if(email.value == ""){
+        console.log("email invalide");
+        email.classList.add("error");
+        let liError = document.createElement("li");
+        liError.innerText = "Le champ email ne peut pas être vide !";
+        errorList.appendChild(liError);
+        email.classList.add("error");
+       
+    } else {
+        email.classList.remove("error");
+        console.log("email valide");
+    }
+
+    if(check.test(password.value) == false){
+
+        console.log("Mot de passe invalide");
+        let liError = document.createElement("li");
+        liError.innerText = "Le mot de passe doit contenir une MAJ, une minuscule, un chiffre, un caractère spécial et doit faire entre 8 et 16 caractères !";
+        errorList.appendChild(liError);
+        password.classList.add("error");
+
+    } else {
+
+        password.classList.remove("error");
+        console.log("Mot de passe valide");
+
+    }
+
+    console.log("Formulaire soumis avec succès !");
+    let liError = document.createElement("li");
+    liError.innerText = "Formulaire soumis avec succès !";
+    errorList.appendChild(liError);
+})
+    
+    </script>
+</body>
+
+<footer class="footer">
+    <img src="Image/Capture d’écran 2024-11-13 à 18.00.32.png" width="100%" height="250" alt="Réseaux">
+    <p>&copy; 2024 Nas Benas. Tous droits réservés.</p>
+</footer>
+
+</html>

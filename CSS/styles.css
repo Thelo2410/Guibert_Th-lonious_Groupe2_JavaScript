@@ -1,0 +1,359 @@
+
+@import url(https://fonts.google.com/specimen/Montserrat?query=monts);
+
+
+/* Menu de navigation Header */
+
+nav a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.795);
+}
+
+header.header{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+section.top-page {
+    background-color: rgb(14, 13, 13);
+    height: 10vh;
+    padding: 1rem;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: white;
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-button {
+    border: none;
+    background: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s ease;
+}
+
+.search-button:hover {
+    transform: scale(1.1);
+}
+
+/* Menu de navigation Main */
+
+* {
+    font-family:'Montserrat', sans-serif;
+}
+
+body{
+    margin: 0 auto;
+    background-color: rgba(14, 13, 13, 0.971);
+}
+
+nav.nav{
+    display: flex;
+    gap: 15rem;
+    list-style: none;
+    width: 60%;
+    margin-left: 10rem;
+    text-decoration: none;
+}
+
+div.mid-page{
+    margin-left: 10rem;
+    margin-right: 5rem;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+
+nav.bloc-1{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.795);
+}
+
+nav.bloc-2{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    margin-top: 1rem;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.795);
+}
+
+nav.bloc-3{
+    margin-top: 1rem;
+    align-items: center;
+}
+
+nav.bloc-4{
+    align-items: center;
+}
+
+img.logo-site{
+    margin-left: 10%;
+}
+
+nav.logo-recherche{
+    margin-left: auto;
+}
+
+nav.logo-compte{
+    margin-left: 0 auto;
+}
+
+figcaption{
+    text-align: center;
+}
+
+
+.banniere-de-selection {
+    margin: 1.25rem;
+    margin-bottom: 5rem;
+    position: relative;
+}
+  
+.titre-banniere {
+    margin: 0.625rem;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.795);
+}
+  
+.banniere-scroll {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+  
+.scroll-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    width: 3.125rem;
+    height: 100%;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+  
+.scroll-button:hover {
+    opacity: 1;
+}
+  
+.scroll-button.left {
+    left: 0;
+    height: 17.5rem;
+    margin-top: 0.6rem;
+}
+  
+.scroll-button.right {
+    right: 0;
+    height: 17.5rem;
+}
+  
+.banniere img {
+    width: 100%;
+    height: auto;
+}
+
+.banniere {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    padding: 0.625rem 3.125rem;
+    gap: 0.625rem;
+}
+  
+.banniere::-webkit-scrollbar {
+    display: none;  /* Cacher la ScrollBar*/
+}
+  
+.item {
+    flex: 0 0 auto;
+    width: 12.5rem;
+    height: 17.5rem;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #333;
+    transition: transform 0.3s ease;
+}
+  
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  
+.item:hover {
+    transform: scale(1.1);
+    z-index: 2;
+}
+
+/* Footer */
+
+.footer {
+    text-align: center;
+    font-size: 1.563rem;
+    color: white;
+}
+
+
+@media (max-width: 1024px) {
+    nav.nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    .mid-page {
+        margin: 0 1rem;
+    }
+    .banniere {
+        gap: 0.313rem;
+    }
+}
+
+@media (max-width: 600px) {
+    header.header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    img.logo-site {
+        width: 3.125rem;
+    }
+
+    .scroll-button {
+        font-size: 1.5rem;
+        width: 2.5rem;
+    }
+
+    .item {
+        width: 9.375rem;
+    }
+
+    .footer {
+        font-size: 1rem;
+        padding: 0.625rem;
+    }
+}
+
+.error{
+    border-color: red;
+}
+*{
+    font-size: 16px;
+    font-family: sans-serif;
+    margin: 0;
+}
+
+body{
+    width: 80%;
+    margin: 80px auto;
+}
+
+form{
+    border: 1px solid rgba(153, 153, 153, 0);
+}
+
+form > div{
+    margin: 30px 20px;
+}
+
+label{
+    display: block;
+    margin-bottom: 8px;
+}
+
+input{
+    height: 20px;
+    width: 40%;
+}
+
+#menu{
+    display: flex;
+}
+
+.tab{
+    color: black;
+    border: 1px solid black;
+    padding: 1 rem;
+}
+
+.active{
+    background-color: red;
+    color: white;
+}
+
+.content{
+    display: none;
+}
+
+.visible{
+    display: flex;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color:black; /* Couleur de fond claire */
+    color: #000000; /* Texte noir */
+    transition: background-color 0.3s, color 0.3s; /* Animation douce */
+  }
+
+  /* Styles du bouton */
+  .toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF; /* Bouton bleu */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+.toggle-btn:hover {
+    background-color: #0056b3; /* Bouton plus foncé au survol */
+}
+
+/* Dark mode (sera activé via JavaScript) */
+body.dark-mode {
+    background-color: #bbb8b8; /* Couleur de fond sombre */
+    color: #f0f0f0; /* Texte clair */
+}
+
+.dark-mode .toggle-btn {
+    background-color: #444; /* Bouton sombre en mode sombre */
+    color: #ffffff;
+}
+
+.dark-mode .toggle-btn:hover {
+    background-color: #222;
+}
